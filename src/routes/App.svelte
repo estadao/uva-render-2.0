@@ -3,6 +3,7 @@
     fetchDataAndSetContent();
 
     import 'css/global.css';
+    import ImageContainer from "components/images/ImageContainer_responsive.svelte"; 
     import Text from "components/texts/Text.svelte";
 </script>
 
@@ -10,6 +11,8 @@
     {#each $conteúdo as block}
         {#if block.type === 'text'}
             <Text value={block.value} />
+        {:else if block.type === 'imagem'}
+            <ImageContainer value={block.value} />
         {/if}
     {/each}
 

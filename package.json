@@ -26,6 +26,7 @@
 	"dependencies": {
 		"@rollup/plugin-alias": "^5.0.0",
 		"rollup-plugin-postcss": "^4.0.2",
-		"rollup-plugin-svelte": "^7.1.6"
+		"rollup-plugin-svelte": "^7.1.6",
+		"svelte-intersection-observer": "^0.10.1"
 	}
 }
