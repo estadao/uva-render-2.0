@@ -3,7 +3,8 @@
     fetchDataAndSetContent();
 
     import 'css/global.css';
-    import ImageContainer from "components/images/ImageContainer_responsive.svelte"; 
+    import ImageContainer from "components/images/ImageContainer_responsive.svelte";
+    import Rule from "components/rules/Rule.svelte"; 
     import Text from "components/texts/Text.svelte";
 </script>
 
@@ -13,9 +14,10 @@
             <Text value={block.value} />
         {:else if block.type === 'imagem'}
             <ImageContainer value={block.value} />
+        {:else if block.type === 'separador'}
+            <Rule />
         {/if}
     {/each}
-
 {:else}
     <p>Carregando...</p>
 {/if}
