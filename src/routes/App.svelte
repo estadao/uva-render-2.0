@@ -3,6 +3,8 @@
     fetchDataAndSetContent();
 
     import 'css/global.css';
+    import Chapeu from "components/headings/Chapeu.svelte";
+    import DefaultHeading from "components/headings/DefaultHeading.svelte";
     import ImageContainer from "components/images/ImageContainer_responsive.svelte";
     import Rule from "components/rules/Rule.svelte"; 
     import Text from "components/texts/Text.svelte";
@@ -12,6 +14,11 @@
     {#each $conteúdo as block}
         {#if block.type === 'text'}
             <Text value={block.value} />
+        
+        {:else if block.type === 'chapeu'}
+            <Chapeu value={block.value} />
+        {:else if block.type === 'título'}
+            <DefaultHeading value={block.value} />
         {:else if block.type === 'imagem'}
             <ImageContainer value={block.value} />
         {:else if block.type === 'separador'}

@@ -38,7 +38,7 @@ if (typeof document !== 'undefined') {
 // 3. Defines the URL to fetch the JSON from the UvaPages API
 // ************ //
 export function buildJsonUrl(UvaPages) {
-    return `https://arte.estadao.com.br/public/pages/${UvaPages}page.json?v=${version}`;
+    return `https://arte.estadao.com.br/public/pages/${UvaPages}page.json?v=${version()}`;
 }
 
 // ************ //
