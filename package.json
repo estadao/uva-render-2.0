@@ -25,8 +25,11 @@
 	"type": "module",
 	"dependencies": {
 		"@rollup/plugin-alias": "^5.0.0",
+		"gsap": "^3.12.2",
 		"rollup-plugin-postcss": "^4.0.2",
 		"rollup-plugin-svelte": "^7.1.6",
-		"svelte-intersection-observer": "^0.10.1"
+		"ssr-window": "^4.0.2",
+		"svelte-intersection-observer": "^0.10.1",
+        "swiper": "^9.3.2"
 	}
 }

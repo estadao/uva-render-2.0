@@ -57,6 +57,16 @@ export async function fetchDataAndSetContent() {
             if (data && data.conteúdo) {
                 conteúdo.set(Object.values(data.conteúdo));
                 functionExecuted.set(true);
+                setTimeout(() => {
+                    conteúdo.update(items => {
+                        return items.map(item => {
+                            if (item.type === 'text') {
+                                item.value = item.value.replace(/<a\s+[^>]*href=(['"])(https?:\/\/(?!www.estadao.com.br)[^\1]+)\1[^>]*>/gi, '<a target="_blank" href="$2">');
+                            }
+                            return item;
+                        });
+                    });
+                }, 0);
                 console.log(data);
             } else {
                 console.error('Conteúdo não encontrado na resposta JSON.');

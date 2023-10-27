@@ -1,0 +1,47 @@
+<script>
+    import UvaRepositorioMediaOnce from 'components/observer/Uva-repositorio-media-once.svelte';
+    import Image from 'components/images/Image.svelte';
+    import Caption from 'components/images/Caption.svelte';
+    import ImagePlaceholder from 'components/images/ImagePlaceholder.svelte';
+    export let value;
+    export const {
+        classe,
+        crédito,
+        fonte,
+        id,
+        legenda,
+        mostrarLegenda,
+        tamanho
+    } = value;
+    const rootMargin = '0px 0px 95% 0px';
+    export const descrição = legenda;
+    let node;
+</script>
+
+<style>
+    figure {
+        margin: calc(var(--margem-vertical) * 1.5) auto;
+    }
+
+    figcaption {
+        margin: calc(var(--margem-vertical) * 0.1) auto calc(var(--margem-vertical) * 1) auto;
+    }
+</style>
+
+<UvaRepositorioMediaOnce {id} {tamanho} {rootMargin} bind:this={node}>
+    <figure>
+        <Image classe={classe} src='https://www.estadao.com.br{fonte}' alt={legenda} />
+        {#if mostrarLegenda}
+            <figcaption style='{tamanho === 'GG' ? 'width: var(--largura-celular); margin-left: auto; margin-right: auto' : ''}{mostrarLegenda === 'não' ? 'text-align: right; margin-top: 0' : ''}'>
+                <Caption 
+                    mostrarLegenda={mostrarLegenda} 
+                    legenda={legenda} 
+                    crédito={crédito} 
+                />
+            </figcaption>
+        {/if}
+    </figure>
+    <placeholder slot='placeholder'>
+        <ImagePlaceholder {descrição} />
+    </placeholder>
+</UvaRepositorioMediaOnce>
